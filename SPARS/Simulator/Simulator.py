@@ -84,7 +84,9 @@ class Simulator:
             algorithm,
             start_time,
             self.jobs_manager,
-            timeout
+            timeout,
+            platform_info=self.platform_info,
+            workload_info=self.workload_info
         )
 
         # RL

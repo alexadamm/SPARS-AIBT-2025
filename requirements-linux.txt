@@ -55,3 +55,5 @@ traitlets==5.14.3
 typing_extensions==4.12.2
 tzdata==2025.2
 wcwidth==0.2.13
+scipy==1.16.2
+ortools==9.14.6206

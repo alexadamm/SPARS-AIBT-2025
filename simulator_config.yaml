@@ -4,7 +4,7 @@ paths:
   output: "results/generated_200_16_3600"
 
 run:
-  algorithm: "easy_auto"
+  algorithm: "easy_mcf"
   overrun_policy: "terminate"
   timeout: 3600
   # start_time can be:
