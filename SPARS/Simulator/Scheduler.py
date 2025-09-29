@@ -14,20 +14,20 @@ ALGO_MAP = {
 
 
 class Scheduler:
-    def __init__(self, state, waiting_queue, algorithm, start_time, jobs_manager, timeout=None, platform_info=None, workload_info=None):
+    def __init__(self, state, waiting_queue, algorithm, start_time, jobs_manager, timeout=None, platform_info=None, workload_info=None, recompute_interval=3600, lookahead_window=7200):
         AlgorithmClass = ALGO_MAP[algorithm.lower()]
         if AlgorithmClass == EASYMinimumCostFlow:
             if platform_info is None or workload_info is None:
                 raise ValueError(
                     "platform_info and workload_info must be provided for EASYMinimumCostFlow algorithm")
-            self.algorithm = AlgorithmClass(
-                state,
-                waiting_queue,
-                start_time,
-                jobs_manager,
-                timeout,
+            
+            self.algorithm = EASYMinimumCostFlow(
+                state, waiting_queue, start_time,
+                jobs_manager, timeout=None,
                 platform_info=platform_info,
-                workload_info=workload_info
+                workload_info=workload_info,
+                recompute_interval=recompute_interval,
+                lookahead_window=lookahead_window
             )
         else:
             self.algorithm = AlgorithmClass(
